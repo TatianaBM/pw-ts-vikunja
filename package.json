@@ -3,15 +3,42 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prettier": "prettier --config .prettierrc src/**/*.ts --check src/",
+    "prettier:fix": "prettier --config .prettierrc src/**/*.ts --write src/",
+    "format": " npm run prettier && npm run lint",
+    "format:fix": "npm run prettier:fix && npm run lint:fix",
+    "prepare": "husky"
+  },
   "keywords": [],
   "author": "Tatiana Merki",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "10.0.1",
     "@playwright/test": "1.58.2",
     "@types/node": "25.3.0",
+    "@typescript-eslint/eslint-plugin": "8.56.1",
+    "@typescript-eslint/parser": "8.56.1",
+    "eslint": "10.0.2",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-prettier": "5.5.5",
+    "globals": "17.3.0",
+    "husky": "9.1.7",
+    "jiti": "2.6.1",
+    "lint-staged": "16.2.7",
     "prettier": "3.8.1",
     "ts-node": "10.9.2",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.56.1"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,js,jsx}": [
+      "eslint --fix"
+    ],
+    "src/**/*.{ts,tsx,js,jsx,json,md,yml,yaml,css,scss}": [
+      "prettier --write"
+    ]
   }
 }
