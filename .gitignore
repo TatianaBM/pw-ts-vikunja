@@ -9,3 +9,8 @@ node_modules/
 
 # CI
 .github
+
+# dotenv environment variable files
+.env
+.env.sandbox
+.env.staging
