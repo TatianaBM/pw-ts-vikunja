@@ -16,12 +16,12 @@ export default [
   {
     plugins: { prettier: prettierPlugin },
     rules: {
-      "prettier/prettier": ["error", { endOfLine: "auto", printWidth: 80, singleQuote: true }],
+      "prettier/prettier": ['error', { endOfLine: 'auto', printWidth: 80, singleQuote: true, trailingComma: 'all' }],
       eqeqeq: "error",
       "@typescript-eslint/no-explicit-any": "off",
     },
   },
   {
-    ignores: ["node_modules", "**/dist/**", "eslint.config.mts", "playwright-report", "test-results"],
+    ignores: ['node_modules', '**/dist/**', 'eslint.config.mts', 'playwright-report', 'test-results'],
   },
 ];
