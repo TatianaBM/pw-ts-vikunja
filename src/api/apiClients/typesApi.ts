@@ -9,15 +9,15 @@ export interface IRequestOptions {
 }
 
 // The body type will be decided later, but it must be either an object or null
-export interface IResponse<T extends object | null> {
+export interface IResponse<T extends object> {
   status: number
   headers: Record<string, string>
-  body: T
+  body?: T
 }
 
 // T extends object | null => what type the response body will be
 // options => The method takes one parameter
 // Promise<IResponse<T> => what our method returns
 export interface IApiClient {
-  send<T extends object | null>(options: IRequestOptions): Promise<IResponse<T>>
+  send<T extends object>(options: IRequestOptions): Promise<IResponse<T>>
 }
