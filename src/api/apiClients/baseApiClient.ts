@@ -1,4 +1,4 @@
-import { IApiClient, IRequestOptions, IResponse } from './typesApi'
+import { IApiClient, IRequestOptions, IResponse } from 'api/apiClients/typesApi'
 
 // Here we define the base structure
 // abstract class must be extended by another class, cannot be instantiated directly
@@ -7,12 +7,12 @@ import { IApiClient, IRequestOptions, IResponse } from './typesApi'
 // ts enforces that BaseApiClient must have send method cause it implements IApiClient
 export abstract class BaseApiClient implements IApiClient {
   // abstract send() means subclasses must implement it
-  abstract send<T extends object | null>(
+  abstract send<T extends object>(
     options: IRequestOptions,
   ): Promise<IResponse<T>>
 
   // Encapsulation via protected
   // abstract transformResponse() means subclasses must implement it
   // protected => Accessible inside the class and subclasses
-  protected abstract transformResponse(): Promise<IResponse<object | null>>
+  protected abstract transformResponse(): Promise<IResponse<object>>
 }

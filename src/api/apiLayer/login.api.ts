@@ -1,7 +1,7 @@
-import { IApiClient, IRequestOptions } from '../apiClients/typesApi'
-import { ICredentials } from '../../data/types/credentials.types'
-import { apiConfig } from '../config/apiConfig'
-import { ILoginResponse } from '../../data/types/credentials.types'
+import { IApiClient, IRequestOptions } from 'api/apiClients/typesApi'
+import { ICredentials } from 'data/types/credentials.types'
+import { apiConfig } from 'config/apiConfig'
+import { ILoginResponse } from 'data/types/credentials.types'
 
 // LoginApi handles HTTP , responsible only for sending login requests.
 export class LoginApi {

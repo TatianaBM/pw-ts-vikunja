@@ -4,8 +4,8 @@ import {
   APIResponse,
   TestStepInfo,
 } from '@playwright/test'
-import { BaseApiClient } from './baseApiClient'
-import { IRequestOptions, IResponse } from './typesApi'
+import { BaseApiClient } from 'api/apiClients/baseApiClient'
+import { IRequestOptions, IResponse } from 'api/apiClients/typesApi'
 import _ from 'lodash'
 
 export class PlaywrightApiClient extends BaseApiClient {
@@ -18,7 +18,7 @@ export class PlaywrightApiClient extends BaseApiClient {
 
   // send() method implementation
   // sends HTTP requests via requestContext.fetch()
-  async send<T extends object | null>(
+  async send<T extends object>(
     options: IRequestOptions,
   ): Promise<IResponse<T>> {
     return await test.step(`Request ${options.method.toUpperCase()} ${options.url}`, async (step) => {
@@ -95,7 +95,7 @@ export class PlaywrightApiClient extends BaseApiClient {
   }
 
   // attach artifacts to the test report - response
-  private async attachResponse<T extends object | null>(
+  private async attachResponse<T extends object>(
     options: IRequestOptions,
     response: IResponse<T>,
     step: TestStepInfo,
