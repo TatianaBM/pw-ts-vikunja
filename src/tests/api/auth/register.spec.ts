@@ -56,7 +56,7 @@ test.describe('[API] [REGISTER]', () => {
       validateResponseStatusAndSchema(response, {
         status: STATUS_CODES.BAD_REQUEST,
       })
-      // type guard to remove ts error: if condition is true, then response.body must be IResponseError”
+      // type guard to remove ts error: if condition is true, then response.body must be IResponseError
       if (!response.body || !('message' in response.body)) {
         throw new Error('Expected error response body')
       }

@@ -16,3 +16,7 @@ allure-report
 .env
 .env.sandbox
 .env.staging
+
+# PW CLI
+.claude
+.playwright-cli
