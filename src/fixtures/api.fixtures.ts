@@ -29,6 +29,10 @@ const test = base.extend<IApi>({
   },
 
   // services
+  loginService: async ({ loginApi }, use) => {
+    await use(new LoginService(loginApi))
+  },
+
   registerService: async ({ registerApi }, use) => {
     await use(new RegisterService(registerApi))
   },

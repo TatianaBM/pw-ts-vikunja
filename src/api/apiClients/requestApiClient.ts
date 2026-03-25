@@ -74,11 +74,12 @@ export class PlaywrightApiClient extends BaseApiClient {
   // TestStepInfo contains information about currently running test step
   private async attachRequest(options: IRequestOptions, step: TestStepInfo) {
     await step.attach(
-      `Request ${options.method.toUpperCase()} ${options.url}`,
+      `Request details for: Request ${options.method.toUpperCase()} ${options.url}`,
       {
         body: JSON.stringify(
           // JSON.stringify(value, replacer, space), here i do not have custom replacer, Indent with 2 spaces to control spacing in the final string
           {
+            requestUrl: options.baseUrl + options.url,
             headers: options.headers,
             // ensure no empty body field when there's no request body
             // if options.data ist true, returns second operand { body: options.data }
@@ -88,7 +89,7 @@ export class PlaywrightApiClient extends BaseApiClient {
           null,
           2,
         ),
-        //Render this attachment as JSON
+        // Render this attachment as JSON
         contentType: 'application/json',
       },
     )
@@ -101,7 +102,7 @@ export class PlaywrightApiClient extends BaseApiClient {
     step: TestStepInfo,
   ) {
     await step.attach(
-      `Request ${options.method.toUpperCase()} ${options.url}`,
+      `Response details for: Request ${options.method.toUpperCase()} ${options.url}`,
       {
         body: JSON.stringify(
           {
